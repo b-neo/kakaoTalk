@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter, Route } from "react-router-dom";
+import FriendsTab from "./friendsTab";
+import MsessageTab from "./messageTab";
+import Chatroom from "./chatroom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div id="screen">
+			<HashRouter>
+				<Route path="/" exact={true} component={FriendsTab} />
+				<Route path="/messages" exact={true} component={MsessageTab} />
+				<Route path="/chat" exact={false} component={Chatroom} />
+			</HashRouter>
+		</div>
+	);
 }
 
 export default App;
